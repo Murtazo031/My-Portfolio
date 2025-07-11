@@ -165,15 +165,14 @@ export default function Portfolio() {
     },
   ];
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const form = e.target;
-    const name = form[0].value;
-    const email = form[1].value;
-    const subject = form[2].value;
-    const message = form[3].value;
-
+    const form = e.target as HTMLFormElement;
+    const name = form[0] as HTMLInputElement;
+    const email = form[1] as HTMLInputElement;
+    const subject = form[2] as HTMLInputElement;
+    const message = form[3] as HTMLTextAreaElement;
     const text = `
 📬 Новое сообщение с сайта:
 👤 Имя: ${name}
@@ -452,7 +451,7 @@ ${message}
                   latest industry trends.
                 </p>
                 <p className="text-lg leading-relaxed">
-                  When I'm not coding, you can find me exploring new
+                  When I{"'"}m not coding, you can find me exploring new
                   technologies, contributing to open-source projects, or sharing
                   my knowledge through blog posts and tutorials.
                 </p>
@@ -491,7 +490,7 @@ ${message}
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {technologies.map((tech, index) => (
+            {technologies.map((tech) => (
               <div
                 key={tech.name}
                 className="group relative p-6 bg-slate-800/30 rounded-2xl border border-slate-700 backdrop-blur-sm hover:bg-slate-800/50 transition-all duration-300 hover:scale-105"
@@ -668,11 +667,11 @@ ${message}
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-6xl font-bold mb-6">
               <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-                Let's Work Together
+                Let{"'"}s Work Together
               </span>
             </h2>
             <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-              Ready to bring your ideas to life? Let's discuss your next project
+              Ready to bring your ideas to life? Let{"'"}s discuss your next project
             </p>
           </div>
 
@@ -700,7 +699,7 @@ ${message}
                 <div className="flex items-center space-x-4 p-4 bg-slate-800/30 rounded-xl border border-slate-700 backdrop-blur-sm">
                   <Coffee className="h-6 w-6 text-pink-400" />
                   <div>
-                    <div className="text-white font-medium">Let's Chat</div>
+                    <div className="text-white font-medium">Let{"'"}s Chat</div>
                     <div className="text-slate-400">
                       Always open for a coffee chat
                     </div>
